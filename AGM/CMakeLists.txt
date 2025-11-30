@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.23)
+project(segmentador)
+add_executable(segmentador src/main.cpp src/graph.cpp src/felzenszwalb.cpp)
+if (MSVC)
+    target_compile_options(segmentador PRIVATE /W4 /std:c++17)
+else()
+	target_compile_options(segmentador PRIVATE -Wall -Wextra -Wpedantic -Wno-missing-field-initializers -std=c++17)
+endif()
